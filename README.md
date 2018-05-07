@@ -1,6 +1,6 @@
 # vue-koa
 
-> A Vue.js project
+> A Vue.js project 使用的是有赞的vant库，数据接口使用的是mock的模拟数据。
 
 ## Build Setup
 
@@ -27,4 +27,3 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
