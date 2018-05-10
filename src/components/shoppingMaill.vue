@@ -36,7 +36,7 @@
       <div class="recommend-body">
         <!--swiper-->
         <!-- :options="swiperOption" -->
-        <swiper :options="swiperOption" >
+        <swiper :options="swiperOption">
           <swiper-slide v-for=" (item ,index) in recommendGoods" :key="index">
             <div class="recommend-item">
               <img :src="item.image" width="80%" />
@@ -46,14 +46,19 @@
           </swiper-slide>
         </swiper>
       </div>
-    </div>
+     </div>
+      <!--floor one area-->
+     <floorCompoent :floorData="floor1"></floorCompoent>
   </div>
 </template>
 
 <script>
-
   import 'swiper/dist/css/swiper.css'
-  import {swiper,swiperSlide} from 'vue-awesome-swiper'
+  import floorCompoent from './component/floorComponent.vue'
+  import {
+    swiper,
+    swiperSlide
+  } from 'vue-awesome-swiper'
   export default {
     data() {
       return {
@@ -62,13 +67,14 @@
         category: "",
         adBanner: "",
         recommendGoods: "",
-        swiperOption:{
-            autoplay: 1000,
-            loop:true,
-            pagination:{
-                el:'.swiper-pagination'
-            }
-        }
+        swiperOption: {
+          autoplay: 1000,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination'
+          }
+        },
+        floor1: []
       }
     },
     created() {
@@ -82,6 +88,7 @@
           this.adBanner = res.data.data.advertesPicture
           this.bannerPicArray = res.data.data.slides
           this.recommendGoods = res.data.data.recommend
+          this.floor1 = res.data.data.floor1
         }
       }).catch((err) => {
         console(err)
@@ -89,7 +96,8 @@
     },
     components: {
       swiper,
-      swiperSlide
+      swiperSlide,
+      floorCompoent
     },
 
   };
@@ -167,4 +175,5 @@
     text-align: center;
   }
 
+  
 </style>

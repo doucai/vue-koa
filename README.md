@@ -1,6 +1,7 @@
 # vue-koa
 
 > A Vue.js project 使用的是有赞的vant库，数据接口使用的是mock的模拟数据。
+此项目是跟着jspang的文档教程走的。
 
 ## Build Setup
 
