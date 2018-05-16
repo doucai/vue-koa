@@ -48,7 +48,9 @@
       </div>
      </div>
       <!--floor one area-->
-     <floorCompoent :floorData="floor1"></floorCompoent>
+<floorCompoent :floorData="floor1" :floorTitle="floorName.floor1"></floorCompoent>
+<floorCompoent :floorData="floor2" :floorTitle="floorName.floor2"></floorCompoent>
+<floorCompoent :floorData="floor3" :floorTitle="floorName.floor3"></floorCompoent>
   </div>
 </template>
 
@@ -74,7 +76,10 @@
             el: '.swiper-pagination'
           }
         },
-        floor1: []
+       floor1: [],
+        floor2:[],         
+        floor3:[],  
+       floorName:''
       }
     },
     created() {
@@ -89,6 +94,9 @@
           this.bannerPicArray = res.data.data.slides
           this.recommendGoods = res.data.data.recommend
           this.floor1 = res.data.data.floor1
+          this.floor2 = res.data.data.floor2              //楼层2数据
+          this.floor3 = res.data.data.floor3   
+          this.floorName = res.data.data.floorName 
         }
       }).catch((err) => {
         console(err)
@@ -98,8 +106,7 @@
       swiper,
       swiperSlide,
       floorCompoent
-    },
-
+    }
   };
 
 </script>
