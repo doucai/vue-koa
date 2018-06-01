@@ -13,7 +13,7 @@
     </van-row>
 
     <!--swipwer area-->
-    <van-swipe :autoplay="1000">
+    <van-swipe :autoplay="1000">  
       <van-swipe-item v-for="(image, index) in bannerPicArray" :key="index">
         <img v-lazy="image.image" width="100%" />
       </van-swipe-item>
@@ -48,19 +48,24 @@
       </div>
      </div>
       <!--floor one area-->
-<floorCompoent :floorData="floor1" :floorTitle="floorName.floor1"></floorCompoent>
-<floorCompoent :floorData="floor2" :floorTitle="floorName.floor2"></floorCompoent>
-<floorCompoent :floorData="floor3" :floorTitle="floorName.floor3"></floorCompoent>
+      <floorCompoent :floorData="floor1" :floorTitle="floorName.floor1"></floorCompoent>
+      <floorCompoent :floorData="floor2" :floorTitle="floorName.floor2"></floorCompoent>
+      <floorCompoent :floorData="floor3" :floorTitle="floorName.floor3"></floorCompoent>
+
+      <!-- hotGoods -->
+      <goods-Info :goods="hotGoods"></goods-Info>
   </div>
 </template>
 
 <script>
   import 'swiper/dist/css/swiper.css'
   import floorCompoent from './component/floorComponent.vue'
+  import goodsInfo from './component/goodsInfo.vue'
   import {
     swiper,
     swiperSlide
   } from 'vue-awesome-swiper'
+  import url from "@/serviceAPi.config.js"
   export default {
     data() {
       return {
@@ -76,15 +81,16 @@
             el: '.swiper-pagination'
           }
         },
-       floor1: [],
+        floor1: [],
         floor2:[],         
         floor3:[],  
-       floorName:''
+        floorName:'',
+        hotGoods:[] 
       }
     },
     created() {
       this.$http({
-        url: "https://www.easy-mock.com/mock/5ae2b3c4ab5bad29ce810a51/example/xiaocai",
+        url: url.getShoppingxiaocai,
         method: "get",
       }).then((res) => {
         console.log(res)
@@ -97,6 +103,7 @@
           this.floor2 = res.data.data.floor2              //楼层2数据
           this.floor3 = res.data.data.floor3   
           this.floorName = res.data.data.floorName 
+          this.hotGoods = res.data.data.hotGoods
         }
       }).catch((err) => {
         console(err)
@@ -105,7 +112,8 @@
     components: {
       swiper,
       swiperSlide,
-      floorCompoent
+      floorCompoent,
+      goodsInfo
     }
   };
 

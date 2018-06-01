@@ -28,12 +28,11 @@ export default {
         return {
             floorData0:[],
             floorData1:[],
-            floorData2:[]
+            floorData2:[],
         }
     },
     watch: {
         floorData:function(val){
-            console.log(this.floorData)
             this.floorData0=this.floorData[0]
             this.floorData1=this.floorData[1]
             this.floorData2=this.floorData[2]
