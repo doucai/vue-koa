@@ -61,10 +61,7 @@
   import 'swiper/dist/css/swiper.css'
   import floorCompoent from './component/floorComponent.vue'
   import goodsInfo from './component/goodsInfo.vue'
-  import {
-    swiper,
-    swiperSlide
-  } from 'vue-awesome-swiper'
+  import {swiper,swiperSlide} from 'vue-awesome-swiper'
   import url from "@/serviceAPi.config.js"
   export default {
     data() {
@@ -106,7 +103,7 @@
           this.hotGoods = res.data.data.hotGoods
         }
       }).catch((err) => {
-        console(err)
+        console.log(err)
       })
     },
     components: {
@@ -162,6 +159,7 @@
   }
 
   .type-bar div {
+    flex: 1;
     padding: .3rem;
     font-size: 12px;
     text-align: center;
@@ -184,11 +182,12 @@
   }
 
   .recommend-item {
-    width: 99%;
     border-right: 1px solid #eee;
     font-size: 12px;
     text-align: center;
   }
-
+ .recommend-item img,.goods-image img{
+  width: 100%;
+ }
   
 </style>

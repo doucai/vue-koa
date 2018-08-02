@@ -50,8 +50,7 @@ export default {
   }
 
   .floor-anomaly div {
-    width: 10rem;
-
+    flex:1;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
   }
@@ -76,7 +75,7 @@ export default {
   .floor-rule div {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 10rem;
+    flex: 1;
     border-bottom: 1px solid #ddd;
   }
 

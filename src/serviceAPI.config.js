@@ -1,6 +1,6 @@
-const BASEURL = "https://www.easy-mock.com/mock/5ae2b3c4ab5bad29ce810a51/example/"
+const BASEURL = "https://www.easy-mock.com/mock/5ae2eeb23fbbf24d8cd7f0b6/SmileVue/"
 const URL = {
-    getShoppingxiaocai:BASEURL+'xiaocai',
+    getShoppingxiaocai:BASEURL+'index',
     getGoodsInfo:BASEURL+'getGoodsInfo'
 }
  
