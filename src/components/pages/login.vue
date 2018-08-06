@@ -71,11 +71,13 @@
                     }
                 })
                 .then(response => {
-                   console.log(response)
+                     console.log(response)
+                     //成功时候跳转到首页
+                     this.$router.push("/")
                 })
                 .catch((error) => {   
-                   console.log(error)
-                   this.openLoading = false
+                    console.log(error)
+                    this.openLoading = false
                 })
                         
             },
