@@ -7,7 +7,7 @@ router.get('/',async(ctx)=>{
  
 router.post('/register',async(ctx)=>{
     //取得Model
-    const User = mongoose.model('users')
+    const User = mongoose.model('User')
     //把从前端接收的POST数据封装成一个新的user对象
     let newUser = new User(ctx.request.body)
     //用mongoose的save方法直接存储，然后判断是否成功，返回相应的结果

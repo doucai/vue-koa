@@ -14,6 +14,7 @@
             icon="clear"
             placeholder="请输入用户名"
             required
+            :error-message="usernameErrorMsg"
             @click-icon="username = ''" 
         />
  
@@ -23,9 +24,10 @@
             label="密码"
             placeholder="请输入密码"
             required
+            :error-message="passwordErrorMsg"
         />
         <div class="register-button">
-            <van-button type="primary" @click="axiosRegisterUser" size="large" :loading="openLoading">马上注册</van-button>
+            <van-button type="primary" @click="registerAction" size="large" :loading="openLoading">马上注册</van-button>
         </div>
        </div>
  
@@ -41,6 +43,8 @@ export default {
             username:'',
             password:'',
             openLoading: false, //是否开启用户的Loading
+            usernameErrorMsg:'',   //当用户名出现错误的时候
+            passwordErrorMsg:'',   
         }
     },
     methods: {
@@ -54,8 +58,6 @@ export default {
                 data:{
                   username:this.username,
                   password:this.password,
-                  usernameErrorMsg:'',   //当用户名出现错误的时候
-                  passwordErrorMsg:'',     
                 }
             }).then(response => {
                 console.log(response)
@@ -71,9 +73,33 @@ export default {
                     
             }).catch((error) => {   
                 Toast.fail('注册失败')
+                console.log(error)
                 this.openLoading=false
             })
-        }
+        },
+        checkForm(){
+            let isOk= true
+            if(this.username.length<5){
+                this.usernameErrorMsg="用户名不能小于5位"
+                isOk= false
+            }else{
+                this.usernameErrorMsg=''
+            }
+            if(this.password.length<6){
+                this.passwordErrorMsg="密码不能少于6位"
+                isOk= false
+            }else{
+                this.passwordErrorMsg=''
+            }
+            return isOk
+        },
+        
+        registerAction(){
+            // this.checkForm() && this.axioLoginUser()  或者
+            if(this.checkForm()){
+                this.axiosRegisterUser()
+            }
+        },
     }
 }
 </script>
