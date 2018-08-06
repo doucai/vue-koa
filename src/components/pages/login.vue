@@ -35,7 +35,6 @@
 </template>
  
 <script>
-    import axios from 'axios'
     import url from '@/serviceAPI.config.js'
     import { Toast } from 'vant'
     export default {
@@ -63,7 +62,7 @@
                     //先把按钮进行loading状态，防止重复提交
                     this.openLoading = true
  
-                axios({
+                this.$http({
                     url: url.registerUser,
                     method: 'post',
                     data:{
@@ -72,11 +71,11 @@
                     }
                 })
                 .then(response => {
-                   
-                        
+                   console.log(response)
                 })
                 .catch((error) => {   
-                   
+                   console.log(error)
+                   this.openLoading = false
                 })
                         
             },
