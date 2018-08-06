@@ -63,7 +63,7 @@
                     this.openLoading = true
  
                 this.$http({
-                    url: url.registerUser,
+                    url: url.login,
                     method: 'post',
                     data:{
                         userName:this.username,
