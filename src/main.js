@@ -6,8 +6,8 @@ import router from './router'
 import $ from 'jquery'
 import axios from "axios"
 import {toMoney} from '@/filter/moneyFilter.js'
-import { Button, Row, Col ,Search , Swipe , SwipeItem , Lazyload,List, NavBar ,Field } from 'vant'
-Vue.use(Button).use(Row).use(Col).use(Search).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(NavBar).use(Field)
+import { Button, Toast,Row, Col ,Search , Swipe , SwipeItem , Lazyload,List, NavBar ,Field } from 'vant'
+Vue.use(Button).use(Row).use(Col).use(Search).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(NavBar).use(Field).use(Toast)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
 /* eslint-disable no-new */
