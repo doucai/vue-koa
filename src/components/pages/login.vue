@@ -30,7 +30,7 @@
                 <van-button type="primary" @click="LoginAction" :loading="openLoading" size="large">登录</van-button>
             </div>
        </div>
- 
+     
     </div>
 </template>
  
@@ -45,6 +45,12 @@
                 openLoading: false,    //是否开启用户的Loading
                 usernameErrorMsg:'',   //当用户名出现错误的时候
                 passwordErrorMsg:'',   //当密码出现错误的时候
+            }
+        },
+        created(){
+            if(localStorage.userInfo){
+                    Toast.success('您已经登录')
+                    this.$router.push('/')
             }
         },
         methods: {
@@ -73,10 +79,18 @@
                 .then(response => {
                      console.log(response)
                      //成功时候跳转到首页
-                     this.$router.push("/")
+                    if(response.data.code==200 && response.data.message){
+                        localStorage.userInfo=this.username
+                        Toast.success('登录成功')
+                        this.$router.push('/')
+                    }else{
+                        Toast.fail('登录失败')
+                        this.openLoading = false
+                    }
                 })
                 .catch((error) => {   
                     console.log(error)
+                    Toast.fail('登录失败')
                     this.openLoading = false
                 })
                         

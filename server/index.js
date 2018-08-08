@@ -3,6 +3,7 @@ const app =new koa()
 const mongoose = require('mongoose')
 const {connect,initSchemas} = require('./database/init.js')
 const bodyParser = require("koa-bodyparser")
+let goods = require('./appApi/goods.js')
 //跨域中间件
 const cors = require('koa2-cors')
 const Router = require("koa-router")
@@ -11,6 +12,7 @@ let router = new Router();
 router.use('/user',user.routes())
 app.use(bodyParser())
 app.use(cors())
+router.use('/goods',goods.routes())
 //立即执行函数
 function lijizhixing(){
     connect()

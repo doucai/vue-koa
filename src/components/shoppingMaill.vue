@@ -8,7 +8,7 @@
         <input type="text" class="search-input">
       </van-col>
       <van-col span="5">
-        <van-button size="mini">查找</van-button>
+        <van-button  size="mini">查找</van-button>
       </van-col>
     </van-row>
 
