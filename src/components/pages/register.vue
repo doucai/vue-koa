@@ -56,7 +56,7 @@ export default {
                 url:url.registerUser,
                 method:"post",
                 data:{
-                  username:this.username,
+                  userName:this.username,
                   password:this.password,
                 }
             }).then(response => {
@@ -73,7 +73,6 @@ export default {
                     
             }).catch((error) => {   
                 Toast.fail('注册失败')
-                console.log(error)
                 this.openLoading=false
             })
         },

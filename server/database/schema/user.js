@@ -9,8 +9,10 @@ const userSchema = new Schema({
     userName:{unique:true,type:String},
     password:String,
     createAt:{type:Date,default:Date.now()},
-    lastLoginAt:{type:Date,default:Date.now()}
- 
+    lastLoginAt:{type:Date,default:Date.now()},
+},
+{
+    collection:'user'
 })
 // 下面的代码声明了一个实例方法，方法叫做comparePassword，然后传递两个参数，一个是客户端密码，
 //一个是数据库取出来的密码。用bcrypt提供的compare方法就可以比对，最后包装成Promise返回就可以了。
