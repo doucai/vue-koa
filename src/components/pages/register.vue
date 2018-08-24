@@ -52,6 +52,7 @@ export default {
             this.$router.go(-1)
         },
         axiosRegisterUser(){
+            this.openLoading=true
             this.$http({
                 url:url.registerUser,
                 method:"post",
