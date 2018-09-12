@@ -111,6 +111,7 @@
       swiperSlide,
       floorCompoent,
       goodsInfo
+     
     }
   };
 
