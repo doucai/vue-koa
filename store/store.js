@@ -6,9 +6,7 @@ Vue.use(Vuex)
 const stater={
     num:1
 }
-const mutation={
 
-}
 export default new Vuex.store({
     stater,mutation
 })
